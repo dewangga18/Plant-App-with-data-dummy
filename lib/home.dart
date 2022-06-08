@@ -2,16 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:submission/detail.dart';
 import 'package:submission/model/c_text.dart';
 import 'package:submission/model/plant.dart';
-import 'package:submission/my_page.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -26,7 +20,12 @@ class _HomeState extends State<Home> {
   }
 }
 
-//mobile page
+/*
+mobile page
+homemobile diperlukan menggunakan statefullwidget dikarenakan mengimplementasi TickerProviderStateMixin
+dimana komponent tersebut dipakai untuk tabbar
+saat diganti stateless hal tersebut memicu error
+*/
 
 class HomeMobile extends StatefulWidget {
   const HomeMobile({Key? key}) : super(key: key);
@@ -245,6 +244,8 @@ class _HomeMobileState extends State<HomeMobile> with TickerProviderStateMixin {
 }
 
 //web page
+//adanya implementasi TickerProviderStateMixin untuk komponent tabbar dimana dibutuhkan 
+//StatefulWidget dan saat diconvert menjadi StatelessWidget akan terjadi error 
 class HomeWeb extends StatefulWidget {
   const HomeWeb({Key? key}) : super(key: key);
 
