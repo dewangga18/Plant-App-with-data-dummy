@@ -232,7 +232,7 @@
                                         <menuItem title="Text Replacement" id="HFQ-gK-NFA">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="toggleAutomaticTextReplacement:" target="-1" id="DvP-Fe-Py6"/>
+                                                <action selector="toggleAutomatiCTextReplacement:" target="-1" id="DvP-Fe-Py6"/>
                                             </connections>
                                         </menuItem>
                                     </items>

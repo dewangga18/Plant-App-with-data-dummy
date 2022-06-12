@@ -37,7 +37,7 @@ class HomeMobile extends StatefulWidget {
 class _HomeMobileState extends State<HomeMobile> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    TabController controller = TabController(length: 3, vsync: this);
+    TabController _controller = TabController(length: 3, vsync: this);
     return Scaffold(
       body: SingleChildScrollView(
           child: Column(
@@ -49,8 +49,8 @@ class _HomeMobileState extends State<HomeMobile> with TickerProviderStateMixin {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                cText(text: 'Welcome', size: 16),
-                cText(
+                CText(text: 'Welcome', size: 16),
+                CText(
                   text: 'Aaron',
                   size: 25,
                   color: Colors.green.shade700,
@@ -67,7 +67,7 @@ class _HomeMobileState extends State<HomeMobile> with TickerProviderStateMixin {
                 alignment: Alignment.centerLeft,
                 child: TabBar(
                     labelColor: Colors.green,
-                    controller: controller,
+                    controller: _controller,
                     tabs: const [
                       Tab(text: 'Aloevera'),
                       Tab(text: 'Cactus'),
@@ -79,7 +79,7 @@ class _HomeMobileState extends State<HomeMobile> with TickerProviderStateMixin {
             width: double.infinity,
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: TabBarView(
-              controller: controller,
+              controller: _controller,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -244,8 +244,8 @@ class _HomeMobileState extends State<HomeMobile> with TickerProviderStateMixin {
 }
 
 //web page
-//adanya implementasi TickerProviderStateMixin untuk komponent tabbar dimana dibutuhkan 
-//StatefulWidget dan saat diconvert menjadi StatelessWidget akan terjadi error 
+//adanya implementasi TickerProviderStateMixin untuk komponent tabbar dimana dibutuhkan
+//StatefulWidget dan saat diconvert menjadi StatelessWidget akan terjadi error
 class HomeWeb extends StatefulWidget {
   const HomeWeb({Key? key}) : super(key: key);
 
@@ -268,8 +268,8 @@ class _HomeWebState extends State<HomeWeb> with TickerProviderStateMixin {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                cText(text: 'Welcome', size: 16),
-                cText(
+                CText(text: 'Welcome', size: 16),
+                CText(
                   text: 'Aaron',
                   size: 25,
                   color: Colors.green.shade700,

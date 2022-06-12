@@ -1,10 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:submission/detail.dart';
-import 'package:submission/home.dart';
 import 'package:submission/kordinator.dart';
-import 'package:submission/model/c_text.dart';
-import 'package:submission/my_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,8 +39,6 @@ const Main({ Key? key }) : super(key: key);
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 600) {
           return const MainMobile();
-        // } else if (constraints.maxWidth <= 1200) {
-        //   return TourismPlaceGrid(gridCount: 4);
         } else {
           return const MainWeb();
         }
@@ -60,7 +54,6 @@ const MainWeb({ Key? key }) : super(key: key);
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      // appBar: AppBar(title: Text("${MediaQuery.of(context).size.width}")),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Stack(
@@ -194,7 +187,10 @@ class MainMobile extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Text('Get started ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal)),
+                  Text(
+                    'Get started ', 
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal)
+                  ),
                   Icon(Icons.arrow_forward_ios)
                 ],
               )

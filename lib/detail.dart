@@ -9,52 +9,49 @@ class Detail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: LayoutBuilder(
+    return Scaffold(
+      body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      if (constraints.maxWidth < 600) {
-        return  DetailMobile(plants: plants);
-        // } else if (constraints.maxWidth <= 1200) {
-        //   return TourismPlaceGrid(gridCount: 4);
-      } 
-      else {
-        return  DetailWeb(
-          plants: plants
-          );
-      }
-    }));
+          if (constraints.maxWidth < 600) {
+            return DetailMobile(plants: plants);
+          } else {
+            return DetailWeb(plants: plants);
+          }
+        },
+      ),
+    );
   }
 }
 
-class DetailWeb extends StatefulWidget {
+class DetailWeb extends StatelessWidget {
   final Plant plants;
-    DetailWeb({
+  DetailWeb({
     Key? key,
     required this.plants,
   }) : super(key: key);
 
-  @override
-  State<DetailWeb> createState() => _DetailWebState();
-}
-
-class _DetailWebState extends State<DetailWeb> {
-  var desc = "We use cookies to make sure that our \nwebsite works properly, as well as \nsome 'optional' cookies to personalise \ncontent and adversitising";
+  var desc =
+      "We use cookies to make sure that our \nwebsite works properly, as well as \nsome 'optional' cookies to personalise \ncontent and adversitising";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green.withOpacity(0.7),
-      body: Center(
-        child: Card(
-          child: SizedBox(
-            width: 800,
-            height: 500,
-            child: SafeArea(
-              child: Card(
-                child: Container(
+        backgroundColor: Colors.green.withOpacity(0.7),
+        body: Center(
+          child: Card(
+            child: SizedBox(
+              width: 800,
+              height: 500,
+              child: SafeArea(
+                child: Card(
+                    child: Container(
                   margin: const EdgeInsets.all(30),
                   child: Stack(
                     children: [
-                      Container(decoration: BoxDecoration(border: Border.all(color: Colors.red)), child: Image.asset('images/aloevera-1.jpg')),
+                      Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.red)),
+                          child: Image.asset('images/aloevera-1.jpg')),
                       Positioned(
                         left: 20,
                         top: 20,
@@ -82,32 +79,35 @@ class _DetailWebState extends State<DetailWeb> {
                         top: 50,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [ 
-                            cText(text: 'Nama', size: 20),
+                          children: [
+                            CText(text: 'Nama', size: 20),
                             const SizedBox(height: 15),
                             Row(
-                                children: <Widget>[
-                                  const Icon(
-                                    Icons.star,
-                                    color: Colors.yellow,
-                                    size: 16,
-                                  ),
-                                  const SizedBox(height: 7),
-                                  cText(
-                                    text: 'plants.rating',
-                                  )
-                                ],
-                              ),
-                              const SizedBox(height: 15),
-                              cText(
-                                text: 'plants.price', size: 17, color: Colors.indigo),
+                              children: <Widget>[
+                                const Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 16,
+                                ),
+                                const SizedBox(height: 7),
+                                CText(
+                                  text: 'plants.rating',
+                                )
+                              ],
+                            ),
+                            const SizedBox(height: 15),
+                            CText(
+                                text: 'plants.price',
+                                size: 17,
+                                color: Colors.indigo),
                             const SizedBox(height: 15),
                             Row(
                               children: [
                                 const Text('Size:   ',
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold, fontSize: 16)),
-                                cText(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16)),
+                                CText(
                                   text: 'plants.size',
                                   color: Colors.teal.shade700,
                                 )
@@ -119,7 +119,7 @@ class _DetailWebState extends State<DetailWeb> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 20)),
                             const SizedBox(height: 15),
-                            cText(
+                            CText(
                               text: desc,
                               color: Colors.grey,
                               size: 16,
@@ -135,27 +135,25 @@ class _DetailWebState extends State<DetailWeb> {
                           width: 300,
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.green.shade900,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
-                            child: const Text('Add to chart ',
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold))),
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.green.shade900,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                              child: const Text('Add to chart ',
+                                  style: TextStyle(
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold))),
                         ),
                       ),
                     ],
                   ),
-                )
+                ),),
               ),
             ),
           ),
-        ),
-      )
-    );
+        ));
   }
 }
 
@@ -168,7 +166,8 @@ class DetailMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var desc = "We use cookies to make sure that our website works properly, as well as some 'optional' cookies to personalise content and adversitising";
+    var desc =
+        "We use cookies to make sure that our website works properly, as well as some 'optional' cookies to personalise content and adversitising";
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -206,7 +205,7 @@ class DetailMobile extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        cText(
+                        CText(
                           text: plants.name,
                           color: Colors.black,
                           size: 18,
@@ -219,14 +218,14 @@ class DetailMobile extends StatelessWidget {
                               size: 14,
                             ),
                             const SizedBox(height: 5),
-                            cText(
+                            CText(
                               text: plants.rating,
                               size: 14,
                             )
                           ],
                         ),
                         const SizedBox(height: 7),
-                        cText(
+                        CText(
                             text: plants.price, size: 17, color: Colors.indigo),
                         const SizedBox(height: 7),
                         Row(
@@ -234,7 +233,7 @@ class DetailMobile extends StatelessWidget {
                             const Text('Size:   ',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 16)),
-                            cText(
+                            CText(
                               text: plants.size,
                               color: Colors.teal.shade700,
                             )
@@ -246,7 +245,7 @@ class DetailMobile extends StatelessWidget {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20)),
                         const SizedBox(height: 7),
-                        cText(
+                        CText(
                           text: desc,
                           color: Colors.grey,
                           size: 13,

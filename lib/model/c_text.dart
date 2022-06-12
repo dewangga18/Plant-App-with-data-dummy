@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class cText extends StatelessWidget {
+class CText extends StatelessWidget {
   String text;
   double size;
   Color color;
-  cText({
+  CText({
     Key? key,
     required this.text,
     this.size = 14,
