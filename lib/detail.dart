@@ -51,7 +51,7 @@ class DetailWeb extends StatelessWidget {
                       Container(
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.red)),
-                          child: Image.asset('images/aloevera-1.jpg')),
+                          child: Image.asset(plants.imgAsset)),
                       Positioned(
                         left: 20,
                         top: 20,
@@ -80,7 +80,7 @@ class DetailWeb extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CText(text: 'Nama', size: 20),
+                            CText(text: plants.name, size: 20),
                             const SizedBox(height: 15),
                             Row(
                               children: <Widget>[
@@ -91,13 +91,13 @@ class DetailWeb extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 7),
                                 CText(
-                                  text: 'plants.rating',
+                                  text: plants.rating,
                                 )
                               ],
                             ),
                             const SizedBox(height: 15),
                             CText(
-                                text: 'plants.price',
+                                text: plants.price,
                                 size: 17,
                                 color: Colors.indigo),
                             const SizedBox(height: 15),
@@ -108,7 +108,7 @@ class DetailWeb extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16)),
                                 CText(
-                                  text: 'plants.size',
+                                  text: plants.size,
                                   color: Colors.teal.shade700,
                                 )
                               ],
@@ -199,79 +199,83 @@ class DetailMobile extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                    margin:
-                        const EdgeInsets.only(top: 340, left: 15, right: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        CText(
-                          text: plants.name,
-                          color: Colors.black,
-                          size: 18,
-                        ),
-                        Row(
-                          children: <Widget>[
-                            const Icon(
-                              Icons.star,
-                              color: Colors.yellow,
-                              size: 14,
-                            ),
-                            const SizedBox(height: 5),
-                            CText(
-                              text: plants.rating,
-                              size: 14,
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 7),
-                        CText(
-                            text: plants.price, size: 17, color: Colors.indigo),
-                        const SizedBox(height: 7),
-                        Row(
-                          children: [
-                            const Text('Size:   ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16)),
-                            CText(
-                              text: plants.size,
-                              color: Colors.teal.shade700,
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 7),
-                        //data const
-                        const Text('Description',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20)),
-                        const SizedBox(height: 7),
-                        CText(
-                          text: desc,
-                          color: Colors.grey,
-                          size: 13,
-                        ),
-                        const SizedBox(height: 30),
-                        Container(
-                          height: 40,
-                          width: double.infinity,
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.green.shade900,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  )),
-                              child: const Text('Add to chart ',
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.bold))),
-                        ),
-                        const SizedBox(height: 20),
-                      ],
-                    ))
               ],
-            )
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 20, left: 15, right: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  CText(
+                    text: plants.name,
+                    color: Colors.black,
+                    size: 18,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      const Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                        size: 14,
+                      ),
+                      const SizedBox(height: 5),
+                      CText(
+                        text: plants.rating,
+                        size: 14,
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 7),
+                  CText(text: plants.price, size: 17, color: Colors.indigo),
+                  const SizedBox(height: 7),
+                  Row(
+                    children: [
+                      const Text(
+                        'Size:   ',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                      CText(
+                        text: plants.size,
+                        color: Colors.teal.shade700,
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 7),
+                  //data const
+                  const Text(
+                    'Description',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                  const SizedBox(height: 7),
+                  CText(
+                    text: desc,
+                    color: Colors.grey,
+                    size: 13,
+                  ),
+                  const SizedBox(height: 30),
+                  Container(
+                    height: 40,
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.green.shade900,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text(
+                        'Add to chart ',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                ],
+              ),
+            ),
           ],
         ),
       ),
